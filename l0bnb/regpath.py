@@ -62,7 +62,7 @@ def fit_path(x,
             "Time_exceeded": True if the time limit is exceeded at the current
                 solution.
     """
-    print("Preprocessing Data.")
+    # print("Preprocessing Data.")
     # Center and then normalize y and each column of X.
     x_centered, y_centered, mean_x, mean_y, x_centered_cols_sq_l2_norm, \
         beta_multiplier = process_data(x, y, intercept, normalize)
@@ -102,7 +102,7 @@ def fit_path(x,
     terminate = False
     sols = []
     iteration_num = 0
-    print("BnB Started.")
+    # print("BnB Started.")
     while not terminate:
         uppersol = None
         if solver == 'l0bnb':
@@ -167,10 +167,9 @@ def fit_path(x,
 
         iteration_num += 1
 
-        print("Iteration: " + str(iteration_num) + ". Number of non-zeros: ",
-              np.count_nonzero(uppersol))
+        # print("Iteration: " + str(iteration_num) + ". Number of non-zeros: ", np.count_nonzero(uppersol))
         if solver == 'l0bnb' and tree_sol.sol_time >= time_limit:
-            print("Early terminated due to time limit!")
+            # print("Early terminated due to time limit!")
             sols[-1]["Time_exceeded"] = True
 
     return sols

@@ -1,3 +1,6 @@
+import os
+os.environ['KMP_WARNINGS'] = 'off'
+
 import warnings
 
 from numba.core.errors import NumbaDeprecationWarning, \
